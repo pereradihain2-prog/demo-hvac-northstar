@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Northstar Heating & Cooling — Edmonton's trusted HVAC experts since 2008. Furnace repair, AC installation, 24/7 emergency service. Serving Edmonton, Sherwood Park, St. Albert, Leduc & Spruce Grove.">
+    <title>Northstar Heating & Cooling | Edmonton HVAC Experts</title>
+
+    <!--
+        FAVICON — inline SVG snowflake as a data URI.
+        Replace with a real .ico or .png file when you have a logo ready.
+        Create one free at: https://favicon.io
+    -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%231a2744'/><path d='M50 10 L50 90 M10 50 L90 50 M21 21 L79 79 M79 21 L21 79' stroke='%23f47c20' stroke-width='8' stroke-linecap='round'/><circle cx='50' cy='50' r='10' fill='%23f47c20'/></svg>">
+
+    <!--
+        FONT AWESOME 6.5 — icon library loaded from a CDN.
+        This gives us access to thousands of icons with class names like fa-solid fa-fire.
+        CDN = Content Delivery Network: the file is served from a fast global server.
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!--
+        GOOGLE FONTS — Montserrat for headings (bold, modern), Open Sans for body (readable).
+        preconnect tells the browser to connect to Google's servers early for faster loading.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Our main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         STICKY HEADER
+         position: sticky in CSS means it stays at the top as you scroll.
+         JS adds a shadow class when the user scrolls down.
+    ============================================================ -->
+    <header id="site-header">
+        <div class="container header-inner">
+
+            <!-- Logo: inline SVG icon + text. aria-label describes it for screen readers. -->
+            <a href="#hero" class="logo" aria-label="Northstar Heating & Cooling — return to top">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="20" cy="20" r="18" fill="#f47c20"/>
+                    <path d="M20 4 L20 36 M4 20 L36 20 M7.4 7.4 L32.6 32.6 M32.6 7.4 L7.4 32.6" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="20" cy="20" r="4" fill="white"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-name">Northstar</span>
+                    <span class="logo-sub">Heating &amp; Cooling</span>
+                </div>
+            </a>
+
+            <!-- Desktop navigation — hidden on mobile, replaced by slide-in panel -->
+            <nav id="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#service-area">Service Area</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Primary CTA — tel: link opens the phone dialer on mobile -->
+                <a href="tel:7805550100" class="btn btn-cta">
+                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                    <span class="cta-text">780-555-0100</span>
+                </a>
+                <!-- Hamburger button — shown only on mobile via CSS -->
+                <button id="nav-toggle" class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dim overlay behind mobile nav panel — clicking it closes the nav -->
+    <div id="nav-overlay" class="nav-overlay" aria-hidden="true"></div>
+
+
+    <!-- ============================================================
+         HERO SECTION
+         Full-width background image (hero.jpg) with a dark overlay.
+         Left side: eyebrow tag, headline, subtext, CTAs.
+         Right side: "Book Your Service" floating form card.
+         On mobile: columns stack vertically, form drops below text.
+    ============================================================ -->
+    <section id="hero" aria-labelledby="hero-headline">
+        <div class="container">
+            <div class="hero-split">
+
+                <!-- LEFT: headline, subtext, CTAs -->
+                <div class="hero-left">
+                    <p class="hero-tag">Edmonton's Trusted HVAC Experts</p>
+                    <h1 id="hero-headline">Edmonton's Trusted HVAC Experts</h1>
+                    <p class="hero-sub">
+                        Professional heating and cooling solutions for Edmonton homes and businesses —
+                        installed right, backed by a team you can trust.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book Service
+                        </a>
+                        <a href="tel:7805550100" class="btn btn-emergency-hero">
+                            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i> Emergency? Call Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: booking form card -->
+                <!--
+                    This form uses the same Formspree endpoint as the main contact form.
+                    Replace YOUR_FORM_ID with your actual Formspree form ID.
+                -->
+                <div class="hero-form-card">
+                    <div class="hero-form-header">
+                        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                        <h3>Book Your Service</h3>
+                        <p>Free quotes &mdash; same-day response</p>
+                    </div>
+                    <form class="hero-form" id="hero-booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="hf-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="hf-group">
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="hf-group">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="hf-group">
+                            <select name="service" required>
+                                <option value="" disabled selected>Select a Service...</option>
+                                <option value="heating-install">Heating Installation</option>
+                                <option value="ac-install">AC Installation</option>
+                                <option value="furnace-repair">Furnace Repair</option>
+                                <option value="ac-repair">AC Repair</option>
+                                <option value="maintenance">Maintenance Plan</option>
+                                <option value="air-quality">Indoor Air Quality</option>
+                                <option value="emergency">Emergency Service</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request Free Quote
+                        </button>
+                    </form>
+                    <p class="hf-note">
+                        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                        Your info is secure. No spam, ever.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         TRUST BAR
+         Quick stats displayed below the hero to build instant credibility.
+         These are sometimes called "social proof" elements.
+    ============================================================ -->
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-stats">
+                <div class="trust-stat">
+                    <span class="stat-number">18+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="trust-stat">
+                    <span class="stat-number">2,500+</span>
+                    <span class="stat-label">Installations</span>
+                </div>
+                <div class="trust-stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Emergency Service</span>
+                </div>
+                <div class="trust-stat">
+                    <div class="stat-stars" aria-hidden="true">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="stat-number">5-Star</span>
+                    <span class="stat-label">Google Reviews</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+         TRUST CARDS
+         Three quick proof points that reinforce credibility right
+         below the stats bar. Common pattern on high-converting
+         contractor sites — license, pricing, availability.
+    ============================================================ -->
+    <div class="trust-cards">
+        <div class="container">
+            <div class="trust-cards-grid">
+
+                <div class="trust-card">
+                    <div class="trust-card-icon">
+                        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h4>Licensed &amp; Insured</h4>
+                        <p>Fully licensed Alberta gas contractors, WCB covered, and BBB accredited for your complete peace of mind.</p>
+                    </div>
+                </div>
+
+                <div class="trust-card">
+                    <div class="trust-card-icon">
+                        <i class="fa-solid fa-tag" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h4>Upfront Pricing</h4>
+                        <p>No hidden fees, no surprise invoices. You'll know the full cost before we start any work.</p>
+                    </div>
+                </div>
+
+                <div class="trust-card">
+                    <div class="trust-card-icon">
+                        <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h4>24/7 Emergency Service</h4>
+                        <p>Furnace out at midnight in -30&deg;C? We answer every call and dispatch fast, day or night.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+         EMERGENCY BANNER
+         High-visibility strip to catch visitors in crisis situations.
+         The warning icon uses a CSS animation (pulse) for attention.
+    ============================================================ -->
+    <div class="emergency-banner" role="alert">
+        <div class="container">
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <p>
+                <strong>24/7 Emergency HVAC Service Available</strong> &mdash;
+                Furnace out in -30&deg;C? We've got you. Call us anytime, day or night.
+            </p>
+            <a href="tel:7805550100" class="btn btn-emergency-outline">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i> 780-555-0100
+            </a>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+         SERVICES SECTION
+         Six service cards in a 3-column CSS grid.
+         Each card lifts on hover via CSS transitions.
+    ============================================================ -->
+    <section id="services" aria-labelledby="services-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Do</span>
+                <h2 id="services-heading">Full-Service HVAC Solutions</h2>
+                <p>From routine maintenance to emergency repairs, we handle every aspect of your home comfort system.</p>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-fire" aria-hidden="true"></i>
+                    </div>
+                    <h3>Heating Installation</h3>
+                    <p>High-efficiency furnace and boiler installation for new builds and upgrades. Sized right for Edmonton winters.</p>
+                    <a href="#contact" class="service-link">Get a Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-snowflake" aria-hidden="true"></i>
+                    </div>
+                    <h3>AC Installation</h3>
+                    <p>Beat Alberta summers with a properly sized central air conditioning system installed by certified technicians.</p>
+                    <a href="#contact" class="service-link">Get a Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-wrench" aria-hidden="true"></i>
+                    </div>
+                    <h3>Furnace Repair</h3>
+                    <p>Same-day and emergency furnace repairs. We diagnose fast and fix right &mdash; no heat left behind.</p>
+                    <a href="#contact" class="service-link">Book Repair <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-temperature-arrow-down" aria-hidden="true"></i>
+                    </div>
+                    <h3>AC Repair</h3>
+                    <p>AC not cooling properly? We service all major brands and get your system back running before the next heat wave.</p>
+                    <a href="#contact" class="service-link">Book Repair <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                    </div>
+                    <h3>Maintenance Plans</h3>
+                    <p>Annual tune-ups to keep your system efficient, under warranty, and ready for whatever Alberta weather throws at it.</p>
+                    <a href="#pricing" class="service-link">View Plans <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-wind" aria-hidden="true"></i>
+                    </div>
+                    <h3>Indoor Air Quality</h3>
+                    <p>HRV systems, HEPA filtration, humidifiers, and UV air purifiers &mdash; breathe cleaner, healthier air indoors.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         SERVICE AREA
+         Dark section with location chips + embedded Google Maps iframe.
+         The iframe is free to embed — no API key required.
+    ============================================================ -->
+    <section id="service-area" aria-labelledby="area-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Where We Work</span>
+                <h2 id="area-heading">Serving Edmonton &amp; Surrounding Areas</h2>
+                <p>We cover the greater Edmonton metro region &mdash; wherever you are, Northstar is nearby.</p>
+            </div>
+
+            <!-- Location pill badges -->
+            <div class="area-chips">
+                <span class="chip"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Edmonton</span>
+                <span class="chip"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Sherwood Park</span>
+                <span class="chip"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> St. Albert</span>
+                <span class="chip"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Leduc</span>
+                <span class="chip"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Spruce Grove</span>
+                <span class="chip"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Fort Saskatchewan</span>
+            </div>
+
+            <!--
+                Google Maps embed — centered on Edmonton.
+                No API key needed for basic embeds like this.
+                loading="lazy" means the map only loads when the user scrolls near it.
+            -->
+            <div class="map-wrapper">
+                <iframe
+                    title="Northstar Heating & Cooling service area — Greater Edmonton"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d307388.32490765826!2d-113.86789!3d53.56541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a0224580deff23%3A0x411fa00f4f82ef5!2sEdmonton%2C+AB!5e0!3m2!1sen!2sca!4v1713000000000"
+                    width="100%"
+                    height="440"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         ABOUT SECTION
+         Two-column layout: photo on left, text + certifications on right.
+         The "Est. 2008" badge is absolutely positioned over the image.
+    ============================================================ -->
+    <section id="about" aria-labelledby="about-heading">
+        <div class="container">
+            <div class="about-inner">
+
+                <!-- Photo column -->
+                <div class="about-image">
+                    <img
+                        src="images/about.jpg"
+                        alt="Northstar Heating & Cooling team of technicians"
+                        loading="lazy"
+                        width="600"
+                        height="500">
+                    <!-- Decorative badge pinned to the bottom-right of the image -->
+                    <div class="about-badge">
+                        <span class="badge-number">2008</span>
+                        <span class="badge-label">Est. in Edmonton</span>
+                    </div>
+                </div>
+
+                <!-- Text column -->
+                <div class="about-text">
+                    <span class="section-tag">Our Story</span>
+                    <h2 id="about-heading">Edmonton's Trusted Family HVAC Company</h2>
+                    <p>
+                        The Kowalski family has been keeping Edmonton homes warm in winter and cool in summer
+                        since 2008. What started as a one-truck operation has grown into a team of 12 licensed
+                        technicians serving thousands of homeowners across the greater Edmonton area.
+                    </p>
+                    <p>
+                        We built this business on one principle: treat every customer's home like it's our own.
+                        That means honest assessments, fair pricing, and work we stand behind &mdash; every time.
+                    </p>
+
+                    <!-- Certification badges — grid of 4 -->
+                    <div class="cert-grid">
+                        <div class="cert-badge">
+                            <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+                            <span>HRAI Certified</span>
+                        </div>
+                        <div class="cert-badge">
+                            <i class="fa-solid fa-fire-burner" aria-hidden="true"></i>
+                            <span>Alberta Gas Code Certified</span>
+                        </div>
+                        <div class="cert-badge">
+                            <i class="fa-solid fa-shield-heart" aria-hidden="true"></i>
+                            <span>WCB Alberta Covered</span>
+                        </div>
+                        <div class="cert-badge">
+                            <i class="fa-solid fa-award" aria-hidden="true"></i>
+                            <span>BBB Accredited Business</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         PRICING SECTION
+         Three-tier pricing cards. The middle card (Comfort Plan) is
+         "featured" — slightly larger and dark-navy styled.
+    ============================================================ -->
+    <section id="pricing" aria-labelledby="pricing-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Transparent Pricing</span>
+                <h2 id="pricing-heading">Maintenance Plans for Every Home</h2>
+                <p>No surprise charges. Lock in annual peace of mind with one of our maintenance packages.</p>
+            </div>
+
+            <div class="pricing-grid">
+
+                <!-- Tier 1: Basic -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic Tune-Up</h3>
+                        <div class="price">
+                            <span class="price-amount">$129</span>
+                            <span class="price-period">/ year</span>
+                        </div>
+                        <p class="price-desc">One system, once a year</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Annual furnace or AC inspection</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Filter replacement (1 included)</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Safety check &amp; efficiency report</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Priority scheduling</li>
+                        <li class="feature-unavailable"><i class="fa-solid fa-xmark" aria-hidden="true"></i> 24/7 emergency discount</li>
+                        <li class="feature-unavailable"><i class="fa-solid fa-xmark" aria-hidden="true"></i> Both systems covered</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+
+                <!-- Tier 2: Comfort (featured — most popular) -->
+                <div class="pricing-card pricing-featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Comfort Plan</h3>
+                        <div class="price">
+                            <span class="price-amount">$229</span>
+                            <span class="price-period">/ year</span>
+                        </div>
+                        <p class="price-desc">Furnace + AC, full coverage</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Bi-annual tune-up (both systems)</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Filters replaced each visit</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Safety check &amp; efficiency report</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Priority scheduling</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> 15% off emergency service calls</li>
+                        <li class="feature-unavailable"><i class="fa-solid fa-xmark" aria-hidden="true"></i> Parts &amp; labour warranty</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <!-- Tier 3: Premium -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Premium Protection</h3>
+                        <div class="price">
+                            <span class="price-amount">$399</span>
+                            <span class="price-period">/ year</span>
+                        </div>
+                        <p class="price-desc">Total home comfort coverage</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Quarterly system checks</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Unlimited filter replacements</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Safety check &amp; efficiency report</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Front-of-line emergency priority</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> 25% off all service calls</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> 1-year parts &amp; labour warranty</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+
+            </div>
+
+            <p class="pricing-note">
+                <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                All plans include GST. Custom commercial plans available &mdash;
+                <a href="#contact">contact us</a> for a quote.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         TESTIMONIALS
+         Three review cards with star ratings and avatar initials.
+         These use realistic but fictional Edmonton customer names.
+    ============================================================ -->
+    <section id="testimonials" aria-labelledby="testimonials-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What Customers Say</span>
+                <h2 id="testimonials-heading">Edmonton Homeowners Trust Northstar</h2>
+                <p>Don't take our word for it &mdash; here's what real customers have to say.</p>
+            </div>
+
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card">
+                    <div class="stars" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="review-text">"Our furnace died at 11pm in January &mdash; like -28&deg;C outside. I called Northstar half expecting a voicemail. A tech was at my door within 90 minutes and fixed it the same night. I've been a customer ever since."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar" aria-hidden="true">DM</div>
+                        <div>
+                            <p class="reviewer-name">Darren M.</p>
+                            <p class="reviewer-location">South Edmonton</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="review-text">"Got three quotes for a new high-efficiency furnace and AC combo. Northstar wasn't the cheapest, but they were the most thorough &mdash; measured my house properly and explained exactly what we needed. Two years in, zero issues."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar" aria-hidden="true">SK</div>
+                        <div>
+                            <p class="reviewer-name">Sandra K.</p>
+                            <p class="reviewer-location">St. Albert</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="review-text">"Been on the Comfort Plan for three years. It pays for itself &mdash; they caught a small heat exchanger crack on the annual inspection that could've been a huge problem. Always on time, clean, and professional."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar" aria-hidden="true">RT</div>
+                        <div>
+                            <p class="reviewer-name">Rachel T.</p>
+                            <p class="reviewer-location">Sherwood Park</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         GALLERY SECTION
+         6-image grid using Unsplash source URLs with HVAC keywords.
+         Each image has a hover overlay with a caption.
+         object-fit: cover in CSS makes all images fill their box uniformly.
+    ============================================================ -->
+    <section id="gallery" aria-labelledby="gallery-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Work</span>
+                <h2 id="gallery-heading">Recent Installations &amp; Projects</h2>
+                <p>A look at some of the work we've done for Edmonton homeowners and businesses.</p>
+            </div>
+
+            <!-- Gallery images — local files from the images/ folder -->
+            <div class="gallery-grid">
+
+                <div class="gallery-item">
+                    <img src="images/gallery-1.jpg" alt="High-efficiency furnace installation" loading="lazy" width="800" height="600">
+                    <div class="gallery-overlay"><p>High-Efficiency Furnace Install</p></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/gallery-2.jpg" alt="Central AC unit installation" loading="lazy" width="800" height="600">
+                    <div class="gallery-overlay"><p>Central AC Installation</p></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/gallery-3.jpg" alt="HVAC technician performing a repair" loading="lazy" width="800" height="600">
+                    <div class="gallery-overlay"><p>Emergency Furnace Repair</p></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/gallery-4.jpg" alt="Ductwork and ventilation installation" loading="lazy" width="800" height="600">
+                    <div class="gallery-overlay"><p>Ductwork &amp; Ventilation</p></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/gallery-5.jpg" alt="Smart thermostat installation" loading="lazy" width="800" height="600">
+                    <div class="gallery-overlay"><p>Smart Thermostat Upgrade</p></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/gallery-5.jpg" alt="Boiler system installation" loading="lazy" width="800" height="600">
+                    <div class="gallery-overlay"><p>Boiler System Installation</p></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         CONTACT SECTION
+         Two columns: info on left, Formspree form on right.
+
+         HOW TO SET UP FORMSPREE:
+         1. Go to https://formspree.io and create a free account
+         2. Create a new form — Formspree gives you a form ID (e.g., "xpzgkqvw")
+         3. Replace YOUR_FORM_ID in the action attribute below with your real ID
+         4. Done — form submissions will be emailed to you
+    ============================================================ -->
+    <section id="contact" aria-labelledby="contact-heading">
+        <div class="container">
+            <div class="contact-inner">
+
+                <!-- Left column: contact info -->
+                <div class="contact-info">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 id="contact-heading">Request a Free Quote</h2>
+                    <p>Fill out the form and we'll get back to you within one business day. Need something faster? Call us directly.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                            <div>
+                                <p class="detail-label">Phone</p>
+                                <a href="tel:7805550100">780-555-0100</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            <div>
+                                <p class="detail-label">Email</p>
+                                <a href="mailto:info@northstarhvac.ca">info@northstarhvac.ca</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <div>
+                                <p class="detail-label">Office</p>
+                                <p>10045 Jasper Ave, Edmonton, AB T5J 1S2</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                            <div>
+                                <p class="detail-label">Hours</p>
+                                <p>Mon&ndash;Fri: 7am&ndash;7pm</p>
+                                <p>Sat: 8am&ndash;5pm</p>
+                                <p><strong>Emergency: 24/7</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right column: Formspree form -->
+                <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" name="first_name" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name="last_name" placeholder="Smith" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="780-555-0000">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>Select a service...</option>
+                            <option value="heating-install">Heating Installation</option>
+                            <option value="ac-install">AC Installation</option>
+                            <option value="furnace-repair">Furnace Repair</option>
+                            <option value="ac-repair">AC Repair</option>
+                            <option value="maintenance">Maintenance Plan</option>
+                            <option value="air-quality">Indoor Air Quality</option>
+                            <option value="other">Other / Not Sure</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Describe your issue or ask any questions..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send Message
+                    </button>
+                    <p class="form-note">We respond within 1 business day. For emergencies, call us directly.</p>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         FOOTER
+         Four-column grid: brand+social, quick links, services, contact.
+         Bottom bar has copyright and license numbers.
+    ============================================================ -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Column 1: Logo, tagline, social links -->
+                <div class="footer-col footer-brand">
+                    <a href="#hero" class="logo logo-footer" aria-label="Northstar Heating & Cooling — Back to top">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="20" cy="20" r="18" fill="#f47c20"/>
+                            <path d="M20 4 L20 36 M4 20 L36 20 M7.4 7.4 L32.6 32.6 M32.6 7.4 L7.4 32.6" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="20" cy="20" r="4" fill="white"/>
+                        </svg>
+                        <div class="logo-text">
+                            <span class="logo-name">Northstar</span>
+                            <span class="logo-sub">Heating &amp; Cooling</span>
+                        </div>
+                    </a>
+                    <p class="footer-tagline">Edmonton's trusted HVAC experts since 2008. Keeping Alberta families comfortable, year-round.</p>
+                    <div class="social-links" aria-label="Social media links">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Google Reviews"><i class="fa-brands fa-google" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick nav links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#service-area">Service Area</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services links -->
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Heating Installation</a></li>
+                        <li><a href="#services">AC Installation</a></li>
+                        <li><a href="#services">Furnace Repair</a></li>
+                        <li><a href="#services">AC Repair</a></li>
+                        <li><a href="#services">Maintenance Plans</a></li>
+                        <li><a href="#services">Indoor Air Quality</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact details and hours -->
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                            <a href="tel:7805550100">780-555-0100</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto:info@northstarhvac.ca">info@northstarhvac.ca</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <span>10045 Jasper Ave<br>Edmonton, AB T5J 1S2</span>
+                        </li>
+                    </ul>
+                    <div class="footer-hours">
+                        <p><strong>Hours</strong></p>
+                        <p>Mon&ndash;Fri: 7am&ndash;7pm</p>
+                        <p>Sat: 8am&ndash;5pm</p>
+                        <p class="emergency-note">24/7 Emergency Service</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar: copyright + license numbers + policy links -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Northstar Heating &amp; Cooling Ltd. All rights reserved.</p>
+                <p class="license-numbers">
+                    AB Gas Contractor Lic. #GC-2008-4521 &bull; HRAI Member #H-78432 &bull; BBB Accredited &bull; WCB Alberta #10093847
+                </p>
+                <p><a href="#">Privacy Policy</a> &bull; <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Floating "scroll back to top" button — shown via JS after scrolling 400px -->
+    <button id="back-to-top" aria-label="Back to top" title="Back to top">
+        <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Our JavaScript file — loaded at the end so HTML is ready when it runs -->
+    <script src="script.js"></script>
+
+</body>
+</html>
