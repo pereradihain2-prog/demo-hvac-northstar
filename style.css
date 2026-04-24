@@ -66,7 +66,7 @@
     --shadow-lg:   0 8px 40px rgba(0, 0, 0, 0.16);
 
     /* Animation */
-    --transition:  all 0.25s ease;
+    --transition:  color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
 }
 
 
@@ -1193,6 +1193,34 @@ section {
     text-decoration: underline;
 }
 
+.pricing-service-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 40px;
+    margin-top: 20px;
+    padding: 20px 28px;
+    background: rgba(26, 39, 68, 0.04);
+    border: 1px solid var(--light-gray);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.pricing-service-strip i {
+    color: var(--orange);
+    margin-right: 6px;
+}
+
+.pricing-service-strip p {
+    width: 100%;
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 0.8rem;
+    margin-top: 6px;
+}
+
 
 /* =================================================================
    14. TESTIMONIALS SECTION
@@ -1283,7 +1311,7 @@ section {
 ================================================================= */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 14px;
 }
 
@@ -1294,7 +1322,12 @@ section {
     overflow: hidden;
     aspect-ratio: 4 / 3;
     cursor: pointer;
+    grid-column: span 2;
 }
+
+/* Center the last two items when 5 items fill a 6-column grid (3+2 layout) */
+.gallery-item:nth-child(4) { grid-column: 2 / span 2; }
+.gallery-item:nth-child(5) { grid-column: 4 / span 2; }
 
 .gallery-item img {
     width: 100%;
@@ -1918,6 +1951,11 @@ section {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .gallery-item,
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(5) {
+        grid-column: auto;
+    }
 
     /* ——— Contact ——— */
     .contact-inner {
@@ -1950,6 +1988,11 @@ section {
 @media (max-width: 480px) {
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+    .gallery-item,
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(5) {
+        grid-column: auto;
     }
 
     .trust-stat {

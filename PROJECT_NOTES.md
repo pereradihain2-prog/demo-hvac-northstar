@@ -93,6 +93,10 @@ Typography uses `clamp()` for fluid scaling across viewport sizes.
 
 ---
 
+## Positioning
+
+**Speed** is the core competitive angle. Every copy element should reinforce "we get there fast." The hero headline, service descriptions, and CTAs all lead with dispatch time and same-day availability.
+
 ## Known Issues
 
 None blocking. Pre-deployment checklist items listed above under Current Status.
@@ -114,6 +118,8 @@ None blocking. Pre-deployment checklist items listed above under Current Status.
 
 | Date | Change |
 |---|---|
+| 2026-04-23 | Technical fixes — contact form merged to 5 fields (Name/Email/Phone/Service/Message), gallery item 6 removed + 5-item centered grid layout, `transition: all` replaced with explicit properties, install/repair pricing strip added below maintenance plans |
+| 2026-04-23 | Full copy overhaul — hero rewrite (speed positioning), all 6 service descriptions rewritten (4-line formula), all weak CTAs replaced site-wide, trust bar stat corrected |
 | 2026-04-22 | Initial project build — full single-page static site complete (HTML, CSS, JS, images) |
 
 ---
